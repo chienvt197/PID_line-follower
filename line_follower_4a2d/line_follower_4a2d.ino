@@ -111,7 +111,8 @@ bool deadline() {
 }
 
 void LineFollower() {
-  if (sensor[0] == 1) {
+  if (sensor[0] == 1 && sensor[1] > whiteThreshold && sensor[2] > whiteThreshold
+         && sensor[3] > whiteThreshold && sensor[4] > whiteThreshold && sensor[5] == 0) {
     while (sensor[2] > blackThreshold) {
       digitalWrite(inA, HIGH);
       digitalWrite(inB, LOW);
@@ -123,7 +124,8 @@ void LineFollower() {
     }
   }
 
-  else if (sensor[1] == 1) {
+  else if (sensor[0] == 0 && sensor[1] > whiteThreshold && sensor[2] > whiteThreshold
+         && sensor[3] > whiteThreshold && sensor[4] > whiteThreshold && sensor[5] == 1) {
     while (sensor[4] > blackThreshold) {
       digitalWrite(inA, HIGH);
       digitalWrite(inB, LOW);
